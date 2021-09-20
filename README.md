@@ -5,4 +5,4 @@
   <li>To delete a note click the cross icon.</li>
   <li>To edit note click on the text.</li>
 </ul>
-<p>Note!, to run these files you need to enter a security key(random string) in __init__.py. And also specify environment variables to your email and password.</p>
+<p>Note! to run these files you need to enter a security key(random string) in __init__.py. And also specify environment variables to your email and password.</p>
