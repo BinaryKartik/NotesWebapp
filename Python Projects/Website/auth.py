@@ -110,8 +110,8 @@ def signup():
             global pin
             pin = rand.randint(1000, 9999)
             global verified
-            name = os.environ.get('encrypt_data_name')
-            key = os.environ.get('encryption')
+            name = os.environ.get('email')
+            key = os.environ.get('key')
             with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
                smtp.ehlo()
                smtp.starttls()
