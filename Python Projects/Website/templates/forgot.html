@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Forgot Password{% endblock %}
+{% block content %}
+<form method="POST">
+  <h3 align="center">Forgot Password</h3>
+  <p style="margin: 3% 0 3% 0; border-bottom: 5px solid blue; border-bottom-style: ridge;">{% block des %}A code has been sent to your email please enter it here-{% endblock %}</p>
+  <div class="form-group">
+    <label for="email">{% block des2 %}Code{% endblock %}</label>
+    {% block field %}<input type="number" class="form-control" id="code" name="code" placeholder="Enter the code sent to your email">{% endblock %}
+  </div>
+  <button type="submit" class="btn btn-primary">Verify
+  </button>
+{% endblock %}

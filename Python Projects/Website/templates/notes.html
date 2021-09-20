@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Notes{% endblock %}
+{% block content %}
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item" style="word-wrap: break-word;">
+        {% set url = "http://127.0.0.1:5000/update-note/" + (note.id | string()) %}
+        <a style="color: black; text-decoration: none;" class="item" href={{ url }}>{{ note.data }}</a>
+        {% set url = "http://127.0.0.1:5000/delete-note/" + (note.id | string()) %}
+        <a class="close" href = {{ url }}>
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="note" id="note" class="form-control">{{ data2 }}</textarea><br />
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Add Note</button>
+        </div>
+</form>
+<script>
+    function deleteNote(noteId){
+        fetch("http://127.0.0.1:5000/delete-note",{ method: "POST", body: JSON.stringify({noteId : noteId}),
+    }).then((_res) => {
+        window.location.href = "http://127.0.0.1:5000/notes"
+        })
+    }
+</script>
+{% endblock %}

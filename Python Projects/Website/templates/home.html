@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+<center>
+  <header>
+<h1 style="margin-bottom: 50px;">Notes App</h1>
+<div class="images" style="width: 100%; animation: come 4s; transition: margin 2s; overflow-y:hidden;">
+  <style type="text/css" scoped>
+    @keyframes come{
+      from{opacity: 0; margin-top: 200px;}
+      to{opacity: 1; margin-top: 0px;}
+    }
+  </style>
+<img src="{{url_for('static', filename = 'tech.jpg')}}" class="rounded" width="30%">
+<img src="{{url_for('static', filename = 'tech2.jpg')}}" class="rounded" width="30%" style="max-width: 40%; height:auto; box-shadow: 0px 20px 18px 0px grey;">
+<img src="{{url_for('static', filename = 'like.png')}}" class="rounded" width="30%">
+{% if user.is_authenticated %}
+<button class="btn btn-primary" style="width: 30%; margin-top: 5%; height: 60px; font-size: 20px;" onclick="window.location.href='/notes'">Get Started</button>
+{% else %}
+<button class="btn btn-primary" style="width: 30%; margin-top: 5%; height: 60px; font-size: 20px;" onclick="window.location.href='/sign-up'">Get Started</button>
+{% endif %}
+</center>
+</div></header>
+  {% endblock %}
