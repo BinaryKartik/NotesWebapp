@@ -17,6 +17,13 @@
     />
     <title>{% block title %}Home{% endblock %}</title>
     <style>
+      @font-face {
+        font-family: azonix;
+        src: url("{{url_for('static', filename = 'Azonix.otf')}}");
+      }
+      *{
+        font-family: azonix;
+      }
       #navbar a{
         font-size: 18px;
         color: white;
@@ -40,6 +47,25 @@
         padding-bottom: 2px;
         border-bottom: 2px solid white;
       }
+      footer{
+        width: 100%;
+        position: absolute;
+        bottom: 0%;
+      }
+      footer h2{
+        padding-top: 8px;
+        font-size: 20px;
+      }
+      footer g{
+        animation: move 4s infinite;
+        background-image: url("{{url_for('static', filename = 'level selection.jpg')}}");
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .font{
+        font-family: cursive;
+      }
     </style>
 </head>
 <body>
@@ -49,15 +75,15 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse navbar-nav"></div>
-    <div class="navbar-fixed-top" id="navbar">
+    <div class="navbar-fixed-top font" id="navbar">
         {% if user.is_authenticated %}
-        <a class="nav-item nav-link" id="home" href="/">Home</a>
-        <a class="nav-item nav-link" id="notes" href="/notes">Notes</a>
-        <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+        <a class="nav-item nav-link font" id="home" href="/">Home</a>
+        <a class="nav-item nav-link font" id="notes" href="/notes">Notes</a>
+        <a class="nav-item nav-link font" id="logout" href="/logout">Logout</a>
         {% else %}
-        <a class="nav-item nav-link" id="home" href="/">Home</a>
-        <a class="nav-item nav-link" id="login" href="/login">Login</a>
-        <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
+        <a class="nav-item nav-link font" id="home" href="/">Home</a>
+        <a class="nav-item nav-link font" id="login" href="/login">Login</a>
+        <a class="nav-item nav-link font" id="signUp" href="/sign-up">Sign Up</a>
         {% endif %}
     </div>
   </div>
@@ -87,6 +113,11 @@
   {% block content %}
   {% endblock %}
 </div>
+<footer style="height: 38px; width: 100%; background-color:black; color: white;">
+  <center>
+    <h2>Made with 💝 By 🔥<g>Kartik Arora</g>🔥</h2>
+  </center>
+</footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
