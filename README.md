@@ -1,5 +1,5 @@
 <h1>Notes Webapp</h1>
-<p>A basic notes webapp to keep your notes.You can add, edit and delete notes after signing up.</p>
+<p>A basic notes webapp to keep your notes. You can add, edit and delete notes after signing up.</p>
 <ul>
   <li>To add a note type your note in the text box provided and then click 'Add Note'.</li>
   <li>To delete a note click the cross icon.</li>
